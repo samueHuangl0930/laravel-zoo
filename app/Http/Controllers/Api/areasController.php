@@ -21,8 +21,11 @@ class areasController extends Controller
      */
     public function index()
     {
-        //
-        return response()->json([
+        // return response()->json([
+        //     'dd' => 'dd HI',
+        //     'areas' => $this->area->getAllarea(),
+        // ]);
+        return view('area',[
             'dd' => 'dd HI',
             'areas' => $this->area->getAllarea(),
         ]);

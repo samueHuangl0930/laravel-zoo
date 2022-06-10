@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Api\areasController;
+use App\Http\Controllers\Api\speciesarchivesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,24 +14,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
 
 Route::get('/animal_file', function () {
     return view('animal_file');
 });
 
-Route::get('/area', function () {
-    return view('area');
-});
+// Route::get('/area', function () {
+//     return view('area');
+// });
+Route::get('/area', [areasController::class, 'index']);
 
 Route::get('/person', function () {
     return view('person');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
